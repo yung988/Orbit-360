@@ -32,7 +32,6 @@ public final class AppState: ObservableObject {
     private let ffprobeService: MediaProbeService
     private let exportEngine: ExportEngine
     private let metadataService: MetadataService
-    private let commandBuilder = FFmpegCommandBuilder()
     private var exportTask: Task<Void, Never>?
     
     public init(
@@ -80,11 +79,6 @@ public final class AppState: ObservableObject {
         FileManager.default.fileExists(atPath: ffprobePath)
     }
 
-    public var commandPreview: String? {
-        guard let job = makeExportJob() else { return nil }
-        return commandBuilder.commandLine(for: job, ffmpegPath: ffmpegPath)
-    }
-    
     // Core business actions
     public func probeAsset(url: URL, mode: ExportMode, isSecondary: Bool = false) async {
         guard isFfprobeAvailable else {
