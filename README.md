@@ -21,6 +21,7 @@ This project is open source and currently in early MVP/alpha stage.
 ## Requirements
 
 - macOS 13 Ventura or newer
+- Apple Silicon or Intel Mac
 - Swift 5.9+
 - `ffmpeg` and `ffprobe`
 
@@ -55,7 +56,8 @@ swift run 360AudioExporter
 Create a local `.app` bundle and `.dmg`:
 
 ```bash
-swift build -c release
+swift build -c release --arch arm64
+swift build -c release --arch x86_64
 ./create_app.sh
 ```
 

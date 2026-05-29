@@ -10,6 +10,7 @@ DerivedData/
 *.dmg
 AppIcon.iconset/
 dmg_temp/
+universal_temp/
 
 # Local config
 *.xcuserstate

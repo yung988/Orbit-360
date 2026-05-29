@@ -5,6 +5,9 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 WORKSPACE="$SCRIPT_DIR"
 BUILD_DIR="$WORKSPACE/.build/release"
 APP_NAME="360AudioExporter"
+EXECUTABLE_NAME="AudioExporter360"
+ARM64_BINARY="$WORKSPACE/.build/arm64-apple-macosx/release/$APP_NAME"
+X86_64_BINARY="$WORKSPACE/.build/x86_64-apple-macosx/release/$APP_NAME"
 APP_BUNDLE="$WORKSPACE/$APP_NAME.app"
 ICON_SOURCE="${ICON_SOURCE:-$WORKSPACE/Resources/AppIcon.png}"
 ICON_ICNS="${ICON_ICNS:-$WORKSPACE/Resources/AppIcon.icns}"
@@ -15,8 +18,24 @@ mkdir -p "$APP_BUNDLE/Contents/MacOS"
 mkdir -p "$APP_BUNDLE/Contents/Resources"
 
 echo "Copying Binary..."
-cp "$BUILD_DIR/$APP_NAME" "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
-chmod +x "$APP_BUNDLE/Contents/MacOS/$APP_NAME"
+if [ -f "$ARM64_BINARY" ] && [ -f "$X86_64_BINARY" ]; then
+    echo "Creating universal binary..."
+    UNIVERSAL_TEMP_DIR="$WORKSPACE/universal_temp"
+    rm -rf "$UNIVERSAL_TEMP_DIR"
+    mkdir -p "$UNIVERSAL_TEMP_DIR"
+    cp "$ARM64_BINARY" "$UNIVERSAL_TEMP_DIR/arm64"
+    cp "$X86_64_BINARY" "$UNIVERSAL_TEMP_DIR/x86_64"
+    codesign --remove-signature "$UNIVERSAL_TEMP_DIR/arm64" >/dev/null 2>&1 || true
+    codesign --remove-signature "$UNIVERSAL_TEMP_DIR/x86_64" >/dev/null 2>&1 || true
+    lipo -create "$UNIVERSAL_TEMP_DIR/arm64" "$UNIVERSAL_TEMP_DIR/x86_64" -output "$APP_BUNDLE/Contents/MacOS/$EXECUTABLE_NAME"
+    rm -rf "$UNIVERSAL_TEMP_DIR"
+elif [ -f "$BUILD_DIR/$APP_NAME" ]; then
+    cp "$BUILD_DIR/$APP_NAME" "$APP_BUNDLE/Contents/MacOS/$EXECUTABLE_NAME"
+else
+    echo "Release binary not found. Run swift build -c release first."
+    exit 1
+fi
+chmod +x "$APP_BUNDLE/Contents/MacOS/$EXECUTABLE_NAME"
 
 if [ -f "$ICON_ICNS" ]; then
     echo "Copying AppIcon.icns..."
@@ -54,11 +73,11 @@ cat <<EOF > "$APP_BUNDLE/Contents/Info.plist"
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleExecutable</key>
-    <string>$APP_NAME</string>
+    <string>$EXECUTABLE_NAME</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>CFBundleIdentifier</key>
-    <string>com.jangajdos.$APP_NAME</string>
+    <string>com.jangajdos.audioexporter360</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
