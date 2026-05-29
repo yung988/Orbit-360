@@ -20,7 +20,7 @@ This project is open source and currently in early MVP/alpha stage.
 
 ## Requirements
 
-- macOS 14 or newer
+- macOS 13 Ventura or newer
 - Swift 5.9+
 - `ffmpeg` and `ffprobe`
 
@@ -31,6 +31,14 @@ brew install ffmpeg
 ```
 
 The app looks for binaries in `/opt/homebrew/bin`, `/usr/local/bin`, and `/usr/bin`. You can override paths in Settings.
+
+If exports are disabled or the app shows missing binaries, install ffmpeg and restart the app:
+
+```bash
+brew install ffmpeg
+```
+
+The Homebrew package includes both `ffmpeg` and `ffprobe`.
 
 ## Build
 

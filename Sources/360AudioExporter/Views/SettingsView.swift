@@ -14,6 +14,42 @@ struct SettingsView: View {
                 .font(.body)
                 .foregroundColor(.gray)
                 .lineSpacing(4)
+
+            if !appState.isFfmpegAvailable || !appState.isFfprobeAvailable {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "terminal.fill")
+                            .foregroundColor(.orange)
+                        Text("Chybí ffmpeg / ffprobe")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+
+                    Text("Nejjednodušší instalace je přes Homebrew. Balíček ffmpeg obsahuje obě binárky: ffmpeg i ffprobe.")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+
+                    Text("brew install ffmpeg")
+                        .font(.system(size: 12, design: .monospaced))
+                        .foregroundColor(.green)
+                        .textSelection(.enabled)
+                        .padding(8)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.black.opacity(0.35))
+                        .cornerRadius(6)
+
+                    Text("Po instalaci restartujte aplikaci, nebo nastavte cesty ručně níže.")
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                }
+                .padding(14)
+                .background(Color.orange.opacity(0.12))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.orange.opacity(0.25), lineWidth: 1)
+                )
+                .cornerRadius(10)
+            }
             
             VStack(spacing: 16) {
                 // ffmpeg path block

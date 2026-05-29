@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "360AudioExporter",
     platforms: [
-        .macOS(.v14)
+        .macOS(.v13)
     ],
     products: [
         .executable(name: "360AudioExporter", targets: ["360AudioExporter"])
