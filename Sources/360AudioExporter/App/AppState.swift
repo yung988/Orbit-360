@@ -47,8 +47,8 @@ public final class AppState: ObservableObject {
         let savedFfmpeg = UserDefaults.standard.string(forKey: "ffmpegPath")
         let savedFfprobe = UserDefaults.standard.string(forKey: "ffprobePath")
         
-        self.ffmpegPath = savedFfmpeg ?? Self.findDefaultBinary(name: "ffmpeg")
-        self.ffprobePath = savedFfprobe ?? Self.findDefaultBinary(name: "ffprobe")
+        self.ffmpegPath = Self.validSavedPath(savedFfmpeg) ?? Self.findDefaultBinary(name: "ffmpeg")
+        self.ffprobePath = Self.validSavedPath(savedFfprobe) ?? Self.findDefaultBinary(name: "ffprobe")
     }
     
     public func saveBinaryPaths() {
@@ -57,6 +57,10 @@ public final class AppState: ObservableObject {
     }
     
     private static func findDefaultBinary(name: String) -> String {
+        if let bundledPath = Bundle.main.path(forResource: name, ofType: nil), FileManager.default.isExecutableFile(atPath: bundledPath) {
+            return bundledPath
+        }
+
         let commonPaths = [
             "/opt/homebrew/bin/\(name)",
             "/usr/local/bin/\(name)",
@@ -68,6 +72,11 @@ public final class AppState: ObservableObject {
             }
         }
         return "/opt/homebrew/bin/\(name)"
+    }
+
+    private static func validSavedPath(_ path: String?) -> String? {
+        guard let path, FileManager.default.isExecutableFile(atPath: path) else { return nil }
+        return path
     }
     
     // Validate binaries exist

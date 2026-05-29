@@ -64,6 +64,20 @@ else
     echo "No app icon found. Set ICON_ICNS or ICON_SOURCE to include one."
 fi
 
+if [ -f "$WORKSPACE/Resources/ffmpeg" ] && [ -f "$WORKSPACE/Resources/ffprobe" ]; then
+    echo "Copying bundled ffmpeg and ffprobe..."
+    cp "$WORKSPACE/Resources/ffmpeg" "$APP_BUNDLE/Contents/Resources/ffmpeg"
+    cp "$WORKSPACE/Resources/ffprobe" "$APP_BUNDLE/Contents/Resources/ffprobe"
+    chmod +x "$APP_BUNDLE/Contents/Resources/ffmpeg"
+    chmod +x "$APP_BUNDLE/Contents/Resources/ffprobe"
+else
+    echo "No bundled ffmpeg/ffprobe found in Resources/. Users can configure paths in Settings."
+fi
+
+if [ -f "$WORKSPACE/THIRD_PARTY_NOTICES.md" ]; then
+    cp "$WORKSPACE/THIRD_PARTY_NOTICES.md" "$APP_BUNDLE/Contents/Resources/THIRD_PARTY_NOTICES.md"
+fi
+
 echo "Writing Info.plist..."
 cat <<EOF > "$APP_BUNDLE/Contents/Info.plist"
 <?xml version="1.0" encoding="UTF-8"?>

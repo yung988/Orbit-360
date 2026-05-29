@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 struct SettingsView: View {
@@ -25,9 +26,14 @@ struct SettingsView: View {
                             .foregroundColor(.white)
                     }
 
-                    Text("Nejjednodušší instalace je přes Homebrew. Balíček ffmpeg obsahuje obě binárky: ffmpeg i ffprobe.")
+                    Text("Aplikace umí použít ffmpeg přibalený v appce, nebo binárky vybrané ručně. Homebrew je jen jedna z možností, není povinný.")
                         .font(.caption)
                         .foregroundColor(.gray)
+
+                    Text("Možnost 1: stáhnout ffmpeg/ffprobe build, rozbalit ho a níže ručně vybrat soubory ffmpeg a ffprobe.\nMožnost 2: pokud používáte Homebrew, spustit: brew install ffmpeg")
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                        .lineSpacing(3)
 
                     Text("brew install ffmpeg")
                         .font(.system(size: 12, design: .monospaced))
@@ -38,9 +44,19 @@ struct SettingsView: View {
                         .background(Color.black.opacity(0.35))
                         .cornerRadius(6)
 
-                    Text("Po instalaci restartujte aplikaci, nebo nastavte cesty ručně níže.")
-                        .font(.caption2)
-                        .foregroundColor(.gray)
+                    HStack {
+                        Button("Otevřít ffmpeg.org") {
+                            if let url = URL(string: "https://ffmpeg.org/download.html") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.small)
+
+                        Text("Po instalaci restartujte aplikaci, nebo nastavte cesty ručně níže.")
+                            .font(.caption2)
+                            .foregroundColor(.gray)
+                    }
                 }
                 .padding(14)
                 .background(Color.orange.opacity(0.12))

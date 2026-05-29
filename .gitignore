@@ -18,3 +18,7 @@ universal_temp/
 
 # Local source file copied into Resources/AppIcon.png for releases
 /icon_360.png
+
+# Optional bundled third-party binaries for local/release packaging
+/Resources/ffmpeg
+/Resources/ffprobe

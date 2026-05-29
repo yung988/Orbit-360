@@ -33,13 +33,30 @@ brew install ffmpeg
 
 The app looks for binaries in `/opt/homebrew/bin`, `/usr/local/bin`, and `/usr/bin`. You can override paths in Settings.
 
-If exports are disabled or the app shows missing binaries, install ffmpeg and restart the app:
+If exports are disabled or the app shows missing binaries, install or download ffmpeg and restart the app.
+
+For Homebrew users:
 
 ```bash
 brew install ffmpeg
 ```
 
 The Homebrew package includes both `ffmpeg` and `ffprobe`.
+
+Without Homebrew, download an ffmpeg build from https://ffmpeg.org/download.html, then select the `ffmpeg` and `ffprobe` binaries in Settings.
+
+Release maintainers can also bundle binaries by placing executable files at `Resources/ffmpeg` and `Resources/ffprobe` before running `./create_app.sh`.
+
+For convenience, maintainers can fetch redistributable static macOS binaries before packaging:
+
+```bash
+./scripts/download_ffmpeg_macos.sh
+swift build -c release --arch arm64
+swift build -c release --arch x86_64
+./create_app.sh
+```
+
+Bundled FFmpeg binaries are third-party software. See `THIRD_PARTY_NOTICES.md`.
 
 ## Build
 
