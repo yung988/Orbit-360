@@ -60,7 +60,3 @@ swift build -c release
 ## License
 
 MIT
-
-## AI Assistance
-
-This project was developed with AI coding assistance and is being prepared as an open-source macOS utility for the developer community.

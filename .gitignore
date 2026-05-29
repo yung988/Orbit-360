@@ -14,3 +14,6 @@ dmg_temp/
 # Local config
 *.xcuserstate
 *.swp
+
+# Local source file copied into Resources/AppIcon.png for releases
+/icon_360.png
