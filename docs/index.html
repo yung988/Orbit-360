@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit 360 - Premium macOS 360° Video Transcoder & Spatial Audio Restorer</title>
+    <meta name="description" content="Orbit 360 is a native macOS application for converting 360° video files, preserving stereo/spatial audio, and restoring spatial audio metadata for VR-ready exports.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Icon library (Lucide icons via CDN or SVG embeds) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <img src="assets/app_icon.png" alt="Orbit 360 Logo" class="logo-img" id="nav-logo">
+                <span class="logo-text">Orbit 360</span>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#workflow" class="nav-link">Workflow</a>
+                <a href="#install" class="nav-link">Installation</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="https://github.com/yung988/360-audio-exporter/releases/download/v1.0.0/Orbit360.dmg" class="btn btn-secondary btn-sm" id="nav-download-btn">
+                    <i data-lucide="download"></i> Download DMG
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge" id="hero-badge">Native macOS App</div>
+                <h1 class="hero-title" id="hero-heading">Unleash Your 360° Video Exports</h1>
+                <p class="hero-subtitle" id="hero-sub">
+                    Orbit 360 is a sleek, native macOS tool designed to transcode 360° VR footage and preserve, copy, or restore 4-channel spatial audio. No complex timeline clutter—just pure, high-performance conversions.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://github.com/yung988/360-audio-exporter/releases/download/v1.0.0/Orbit360.dmg" class="btn btn-primary btn-lg" id="hero-download-btn">
+                        <i data-lucide="download"></i> Download for macOS
+                    </a>
+                    <a href="https://github.com/yung988/360-audio-exporter" target="_blank" class="btn btn-outline btn-lg" id="hero-github-btn">
+                        <i data-lucide="github"></i> View GitHub
+                    </a>
+                </div>
+                <div class="hero-meta">
+                    <span><i data-lucide="shield-check"></i> macOS 13 Ventura+</span>
+                    <span><i data-lucide="cpu"></i> Apple Silicon & Intel Mac</span>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image-wrapper">
+                    <img src="assets/orbit360_mockup.png" alt="Orbit 360 Interface Mockup" class="hero-image" id="hero-mockup-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="features-title">Designed for Immersive Workflows</h2>
+                <p class="section-subtitle">Everything you need to convert and prepare 360° video and spatial audio for VR platforms without the overhead of heavy video editing packages.</p>
+            </div>
+            
+            <div class="features-grid" id="features-container">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="file-video"></i></div>
+                    <h3 class="feature-title">Universal Formats</h3>
+                    <p class="feature-desc">Convert camera source files and equirectangular exports into clean MP4, MOV, or WebM outputs optimized for online sharing and playback.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="headphones"></i></div>
+                    <h3 class="feature-title">Spatial Audio Restoration</h3>
+                    <p class="feature-desc">Easily extract and restore 4-channel spatial audio from original camera sources back into your edited/graded master video exports.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="layers"></i></div>
+                    <h3 class="feature-title">Batch Processing</h3>
+                    <p class="feature-desc">Queue up to 20 videos at once. Set global preferences or customize presets for each video individually, then export them all in a sequential batch.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="zap"></i></div>
+                    <h3 class="feature-title">Native Performance</h3>
+                    <p class="feature-desc">Optimized for Apple Silicon (M1/M2/M3/M4) and Intel Macs alike. Built using Swift and native macOS controls for blazing-fast operation.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="cpu"></i></div>
+                    <h3 class="feature-title">Bundled Engine</h3>
+                    <p class="feature-desc">Package your own ffmpeg binaries directly inside the app bundle, or configure the path to your custom installed package in Settings.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i data-lucide="activity"></i></div>
+                    <h3 class="feature-title">Direct Validation</h3>
+                    <p class="feature-desc">Pre-verify resolution, frame rate, audio channels, and metadata directly in the app to prevent bad uploads to VR portals before you render.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Workflow Simulator Section -->
+    <section class="workflow" id="workflow">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="workflow-title">Interactive Workflow Simulator</h2>
+                <p class="section-subtitle">Experience how Orbit 360 simplifies your 360° transcoding pipeline in four simple steps.</p>
+            </div>
+
+            <div class="workflow-simulator glass">
+                <div class="simulator-tabs" id="simulator-tabs-container">
+                    <button class="simulator-tab active" data-step="1" id="tab-step-1">
+                        <span class="step-num">01</span> Drag & Drop
+                    </button>
+                    <button class="simulator-tab" data-step="2" id="tab-step-2">
+                        <span class="step-num">02</span> Audio Settings
+                    </button>
+                    <button class="simulator-tab" data-step="3" id="tab-step-3">
+                        <span class="step-num">03</span> Batch & Export
+                    </button>
+                    <button class="simulator-tab" data-step="4" id="tab-step-4">
+                        <span class="step-num">04</span> VR Validation
+                    </button>
+                </div>
+                
+                <div class="simulator-content-wrapper">
+                    <!-- Step 1 -->
+                    <div class="simulator-step-pane active" id="step-pane-1">
+                        <div class="pane-text">
+                            <h3>01. Drag & Drop Files</h3>
+                            <p>Simply drop your 360° camera source files, equirectangular masters, or audio reference files into the media drop zone. Orbit 360 immediately probes the media properties, showing resolution, codec, duration, and audio configurations instantly.</p>
+                            <ul class="step-bullets">
+                                <li>Supports drag-and-drop of multiple files</li>
+                                <li>Reads file tags and technical properties instantly</li>
+                                <li>No complex import dialogs or setup wizards</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual">
+                            <div class="dropzone-visual">
+                                <i data-lucide="cloud-lightning" class="animated-icon"></i>
+                                <p>Drop 360° Video Here</p>
+                                <span class="visual-sub">Supports MP4, MOV, WebM, INSV</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="simulator-step-pane" id="step-pane-2">
+                        <div class="pane-text">
+                            <h3>02. Tailor Audio & Spatial Modes</h3>
+                            <p>Choose exactly how you want your audio streams to behave in the exported file. Orbit 360 gives you full command over your audio tracks.</p>
+                            <ul class="step-bullets">
+                                <li><strong>Preserve Original</strong>: Keep the precise audio track from your source files.</li>
+                                <li><strong>Stereo Downmix</strong>: Mix down multi-channel inputs into a clean dual-channel layout.</li>
+                                <li><strong>Spatial/Ambisonic Audio</strong>: Ensure your 4-channel spatial sound field stays properly mapped.</li>
+                                <li><strong>Restore Spatial Mode</strong>: Extract spatial audio from the camera file and copy it directly to your edited final master video.</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual">
+                            <div class="audio-settings-visual">
+                                <div class="setting-item-sim">
+                                    <span>Audio Output Mode</span>
+                                    <div class="fake-select">Restore Spatial Audio <i data-lucide="chevron-down"></i></div>
+                                </div>
+                                <div class="setting-item-sim">
+                                    <span>Spatial Reference Source</span>
+                                    <div class="fake-file-input"><i data-lucide="file-audio"></i> camera_source_04.mp4</div>
+                                </div>
+                                <div class="setting-item-sim">
+                                    <span>Target Format</span>
+                                    <div class="fake-select">Apple ProRes 422 <i data-lucide="chevron-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="simulator-step-pane" id="step-pane-3">
+                        <div class="pane-text">
+                            <h3>03. Batch Processing & Exporting</h3>
+                            <p>Add up to 20 jobs to the processing queue. You can batch configure format parameters or adjust settings on individual files. Hit 'Start Export Queue' and watch Orbit 360 handle the transcoding sequentially in the background while updating live progress, frame rate, and real-time ETAs.</p>
+                            <ul class="step-bullets">
+                                <li>Queue up to 20 transcoding tasks at a time</li>
+                                <li>Real-time speed (FPS) and accurate ETA calculations</li>
+                                <li>Automatic background worker execution</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual">
+                            <div class="export-visual">
+                                <div class="progress-bar-container">
+                                    <div class="progress-info">
+                                        <span>project_grade_final.mp4</span>
+                                        <span>72%</span>
+                                    </div>
+                                    <div class="fake-progress-track">
+                                        <div class="fake-progress-fill" style="width: 72%;"></div>
+                                    </div>
+                                    <div class="progress-metrics">
+                                        <span>Speed: 145 FPS</span>
+                                        <span>ETA: 01:14 mins</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="simulator-step-pane" id="step-pane-4">
+                        <div class="pane-text">
+                            <h3>04. Instant VR Validation</h3>
+                            <p>Before uploading to YouTube VR, Meta Quest, or sending to a client, inspect the files. The integrated Validator audits the video and audio streams, confirming resolution parameters, spatial channels, and VR projection metadata tags.</p>
+                            <ul class="step-bullets">
+                                <li>Confirms if the projection is marked equirectangular</li>
+                                <li>Audits the audio channel order (e.g., 4-channel ambisonics)</li>
+                                <li>Outputs instant pass/fail validation warnings</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual">
+                            <div class="validation-visual">
+                                <div class="validation-card-sim pass">
+                                    <i data-lucide="check-circle" class="val-icon-pass"></i>
+                                    <div>
+                                        <h4>Projection Metadata: Equirectangular</h4>
+                                        <p>VALID - Metadata tags present and verified.</p>
+                                    </div>
+                                </div>
+                                <div class="validation-card-sim pass">
+                                    <i data-lucide="check-circle" class="val-icon-pass"></i>
+                                    <div>
+                                        <h4>Audio Stream: 4-Channel Ambisonics</h4>
+                                        <p>VALID - Correct layout detected (AMB_FORMAT).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation & Setup -->
+    <section class="install" id="install">
+        <div class="container install-container">
+            <div class="install-text">
+                <h2 class="section-title align-left" id="install-title">Quick Installation</h2>
+                <p>Orbit 360 requires <strong>macOS 13 Ventura</strong> or newer. It uses the powerful FFmpeg engine under the hood to perform high-speed conversions.</p>
+                
+                <div class="setup-steps">
+                    <div class="setup-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Install FFmpeg</h4>
+                            <p>The easiest way is to install via Homebrew. Run this command in Terminal:</p>
+                            <div class="code-block-wrapper">
+                                <code>brew install ffmpeg</code>
+                                <button class="btn-copy-code" data-code="brew install ffmpeg" id="copy-btn-brew"><i data-lucide="copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Download & Run Orbit 360</h4>
+                            <p>Download the latest release, drag Orbit 360 to your Applications folder, and configure path overrides in the app Settings if necessary.</p>
+                            <a href="https://github.com/yung988/360-audio-exporter/releases/download/v1.0.0/Orbit360.dmg" class="btn btn-primary" id="install-download-btn">
+                                <i data-lucide="download"></i> Download Orbit360.dmg
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="install-box glass">
+                <h3>Bundled Binaries</h3>
+                <p>Are you deploying/redistributing or prefer static binaries without installing Homebrew?</p>
+                <p>You can bundle FFmpeg directly inside the application folder before packaging.</p>
+                <div class="terminal-box">
+                    <span class="term-dot red"></span>
+                    <span class="term-dot yellow"></span>
+                    <span class="term-dot green"></span>
+                    <pre class="term-content"><code># Download static macOS binaries
+./scripts/download_ffmpeg_macos.sh
+
+# Compile universal app bundles
+swift build -c release --arch arm64
+swift build -c release --arch x86_64
+
+# Package Orbit360.dmg
+./create_app.sh</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common questions about Orbit 360 capabilities and workflows.</p>
+            </div>
+
+            <div class="faq-accordion" id="faq-accordion-container">
+                <!-- Question 1 -->
+                <div class="faq-item" id="faq-item-1">
+                    <button class="faq-trigger" id="faq-trigger-1">
+                        <span>How does the spatial audio restorer work?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>When you edit or grade 360° videos, NLE software like Premiere Pro or DaVinci Resolve often strips spatial audio metadata or compresses the channels down to stereo. Orbit 360 takes your original camera file (which has the raw 4-channel spatial sound field) and copies that exact audio stream directly into your finished video export, writing the correct VR spatial tags in the output file.</p>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="faq-item" id="faq-item-2">
+                    <button class="faq-trigger" id="faq-trigger-2">
+                        <span>Does Orbit 360 perform camera stitching?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>No, Orbit 360 does not perform camera stitching. You should stitch your camera files first using your camera manufacturer's software (like GoPro Player or Insta360 Studio) or use equirectangular exports. Orbit 360 is designed to transcode stitched videos, manage spatial audio, batch process jobs, and validate exports.</p>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="faq-item" id="faq-item-3">
+                    <button class="faq-trigger" id="faq-trigger-3">
+                        <span>Can I configure custom FFmpeg and FFprobe binary locations?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Yes. By default, Orbit 360 scans standard directories (`/opt/homebrew/bin`, `/usr/local/bin`, and `/usr/bin`). You can easily go to settings in the top navigation panel and point the app directly to custom binary file paths on your filesystem.</p>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="faq-item" id="faq-item-4">
+                    <button class="faq-trigger" id="faq-trigger-4">
+                        <span>Which video and audio formats are supported?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Orbit 360 supports exporting to MP4 (H.264, H.265/HEVC, ProRes), MOV (ProRes, H.264, H.265/HEVC), and WebM (VP9, Opus). Input support depends on your FFmpeg configuration, which includes standard codecs and camera formats like GoPro .360 and Insta360 .insv files.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="assets/app_icon.png" alt="Orbit 360 Logo" class="logo-img" id="footer-logo">
+                    <span class="logo-text">Orbit 360</span>
+                </div>
+                <p>Native macOS VR Transcoder & Spatial Audio utility.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/yung988/360-audio-exporter" target="_blank" id="footer-gh-link"><i data-lucide="github"></i> GitHub</a>
+                <a href="https://github.com/yung988/360-audio-exporter/blob/main/LICENSE" target="_blank" id="footer-license-link">MIT License</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Orbit 360 Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Sticky Navbar background blur on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Interactive Workflow Simulator Tabs
+        const tabs = document.querySelectorAll('.simulator-tab');
+        const panes = document.querySelectorAll('.simulator-step-pane');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active classes
+                tabs.forEach(t => t.classList.remove('active'));
+                panes.forEach(p => p.classList.remove('active'));
+
+                // Add active to current
+                tab.classList.add('active');
+                const step = tab.getAttribute('data-step');
+                document.getElementById(`step-pane-${step}`).classList.add('active');
+            });
+        });
+
+        // Copy command button logic
+        const copyButton = document.getElementById('copy-btn-brew');
+        copyButton.addEventListener('click', () => {
+            const codeText = copyButton.getAttribute('data-code');
+            navigator.clipboard.writeText(codeText).then(() => {
+                const icon = copyButton.querySelector('i');
+                copyButton.innerHTML = '<i data-lucide="check"></i>';
+                lucide.createIcons();
+                setTimeout(() => {
+                    copyButton.innerHTML = '<i data-lucide="copy"></i>';
+                    lucide.createIcons();
+                }, 2000);
+            });
+        });
+
+        // Interactive FAQ Accordion
+        const faqTriggers = document.querySelectorAll('.faq-trigger');
+        faqTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const faqItem = trigger.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle active on clicked item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
